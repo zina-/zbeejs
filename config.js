@@ -7,7 +7,7 @@ var config = {
   db_connection: {
     host: 'localhost',
     user: 'root',
-    password: 'dnjem!1',
+    password: 'db password here',
     database: 'zbeejs'
   },
 
