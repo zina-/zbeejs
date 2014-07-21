@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>@zina | <%= posting.Subject %></title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script>
+
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+        $(function () {
+            $('.posting-content img').addClass('img-thumbnail');
+        })
+    </script>
+
+    <link rel="stylesheet" href="/stylesheets/main.css"/>
+</head>
+<body>
+<header class="jumbotron">
+    <a href="/"><h1>@zina</h1></a>
+</header>
+
+<article>
+    <div class="container">
+        <header class="posting-header page-header">
+            <h1 class="posting-subject"><%= posting.Subject %></h1>
+            <small> | </small>
+            <small>Created: <%= posting.PublishedTimestamp %></small>
+            <br/>
+            <small> | </small>
+            <small>Changed: <%= posting.ChangedTimestamp%></small>
+        </header>
+        <div class="posting-content"><%- posting.Content %></div>
+    </div>
+</article>
+
+<footer>
+    <span>powered by <a href="mailto:127.0.0.1.zina@gmail.com">@zina</a></span>
+</footer>
+</body>
+</html>

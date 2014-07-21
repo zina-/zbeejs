@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>@zina</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/stylesheets/main.css"/>
+</head>
+<body>
+<header class="jumbotron">
+    <a href="/"><h1>@zina</h1></a>
+</header>
+
+<div class="container">
+    <% for(var i = 0; i < page_posting_list.length; i++) { %>
+    <section class="home-labels">
+        <a href="<%= '/posting/' + page_posting_list[i].Permalink %>">
+            <h1><%= page_posting_list[i].Subject %></h1>
+        </a>
+        <small>|</small>
+        <small>Created: <%= page_posting_list[i].PublishedTimestamp %></small>
+        <br/>
+        <small>|</small>
+        <small>Changed: <%= page_posting_list[i].ChangedTimestamp %></small>
+    </section>
+    <% } %>
+</div>
+
+<div class="section-selector">
+    <div class="clearfix" style="float: left;"></div>
+    <!--<button type="button" class="btn btn-default" style="float: left;">-->
+    <a href="/">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <!--</button>-->
+    </a>
+    <a href="/">
+        <span>#1</span>
+    </a>
+    <!--<button type="button" class="btn btn-default" style="float: right;">-->
+    <a href="/">
+        <span class="glyphicon glyphicon-chevron-right" style="float: right;"></span>
+        <!--</button>-->
+    </a>
+    <div class="clearfix"></div>
+</div>
+
+<footer>
+    <span>powered by <a href="mailto:127.0.0.1.zina@gmail.com">@zina</a></span>
+</footer>
+</body>
+</html>
