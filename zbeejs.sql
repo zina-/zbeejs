@@ -15,5 +15,6 @@ CREATE TABLE `postings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `crawler` (
-  `Cursor` varchar(255) DEFAULT NULL
+  `Cursor` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Cursor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
