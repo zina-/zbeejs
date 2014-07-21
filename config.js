@@ -13,19 +13,19 @@ var config = {
 
   /* main page paging attributes */
   main_paging: {
-    thread_count: 6
+    thread_count: 20
   },
 
   /* remote dropbox path configuration */
   dropbox_config: {
     /* authentication configuration */
-    api_key: 'p521r5bjf5zb1le',
-    api_secret: 'qjohsl8mh405vah',
-    access_token: 'No5rhkmJmoYAAAAAAAAASA-WgHc-3HLDbtiLn9USVgjc8GMYzOT-H0xhynm8EDkj',
+    api_key: 'api key here',
+    api_secret: 'api secret here',
+    access_token: 'access token here',
 
     /* remote dropbox path information */
     md_path: '/md',
-    resource_path: '/resource'
+    resource_path: '/md/resource'
   }
 };
 
