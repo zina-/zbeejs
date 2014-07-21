@@ -186,7 +186,7 @@ var syncChangedMarkdown = function(stat, dbx) {
       },
       /* 5. update cursor */
       function(callback) {
-        crawler_repo.setCursor(stat.cursorTag, callback);
+        crawler_repo.setCursor(stat.cursor(), callback);
       }
     ],
     function(e) {
