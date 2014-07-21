@@ -119,7 +119,13 @@ var runCrawl = function(cursor, dt, dbx, crawl_callback) {
     }
   }
 
-  crawl_callback(null);
+  crawler_repo.setCursor(dt.cursor(), function(e) {
+    if (e) {
+      console.error(e);
+    }
+
+    crawl_callback(null);
+  });
 };
 
 
@@ -187,10 +193,6 @@ var syncChangedMarkdown = function(stat, dbx) {
       /* 4. save or update posting to db */
       function(posting, callback) {
         posting_repo.savePostingByFilename(posting, callback);
-      },
-      /* 5. update cursor */
-      function(callback) {
-        crawler_repo.setCursor(stat.cursor(), callback);
       }
     ],
     function(e) {
@@ -217,7 +219,7 @@ var syncChangedJson = function(stat, dbx) {
         function(callback) {
           dbx.readFile(stat.path, callback);
         },
-        /* update posting property */
+        /* 2. update posting property */
         function(json_content, callback) {
           var json_obj = JSON.parse(json_content);
 
