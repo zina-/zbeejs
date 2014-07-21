@@ -84,6 +84,7 @@ var runCrawl = function(cursor, dt, dbx, crawl_callback) {
 
         /* is the file in md_folder? and md extension file? */
         if (path.relative(path.dirname(stat.path), dropbox_config.md_path) == '' && path.extname(stat.path) == '.md') {
+          console.log('deleted markdown : ' + stat.path);
           syncRemovedMarkdown(stat, dbx);
         }
         /* is the file in md_folder? and json extension file? */
@@ -103,14 +104,17 @@ var runCrawl = function(cursor, dt, dbx, crawl_callback) {
 
     /* is the file in md_folder? and md extension file? */
     if (path.relative(path.dirname(dtl.path), dropbox_config.md_path) == '' && path.extname(dtl.path) == '.md') {
+      console.log('updated or created markdown : ' + dtl.path);
       syncChangedMarkdown(dtl.stat, dbx);
     }
     /* is the file in md_folder? and json extension file? */
     else if (path.relative(path.dirname(dtl.path), dropbox_config.md_path) == '' && path.extname(dtl.path) == '.json') {
+      console.log('updated or created json : ' + dtl.path);
       syncChangedJson(dtl.stat, dbx);
     }
     /* is the file in resource_folder? */
     else if (path.relative(path.dirname(dtl.path), dropbox_config.resource_path) == '') {
+      console.log('updated or created json : ' + dtl.path);
       syncChangedResource(dtl.stat, dbx);
     }
   }
@@ -283,6 +287,8 @@ var syncRemovedJson = function(stat, dbx) {
           callback(null);
           return;
         }
+
+        console.log('updated json : ' + stat.path);
 
         posting.Permalink = makePathToPermalink(posting.OriginFilename);
         posting.Subject = path.onlyname(posting.OriginFilename);
