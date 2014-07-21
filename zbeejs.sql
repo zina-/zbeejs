@@ -6,7 +6,7 @@ CREATE TABLE `postings` (
   `Permalink` varchar(100) NOT NULL,
   `Subject` varchar(255) DEFAULT NULL,
   `ChangedTimestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Content` varchar(10000) DEFAULT NULL,
+  `Content` varchar(50000) DEFAULT NULL,
   `PublishedTimestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `IsPublished` tinyint(1) DEFAULT '0',
   `OriginFilename` varchar(255) NOT NULL,
