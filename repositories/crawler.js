@@ -29,7 +29,7 @@ var crawler_repo = {
   },
   /* result_callback(err) */
   setCursor: function(cursor, result_callback) {
-    db.query('INSERT INTO crawler(`Cursor`) VALUES(?) ON DUPLICATE KEY UPDATE `Cursor` = ?', [cursor, cursor], function(e) {
+    db.query('REPLACE INTO crawler (`Cursor`) VALUES(?)', [cursor], function(e) {
       if (e) {
         result_callback(e);
         return;
