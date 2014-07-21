@@ -7,7 +7,7 @@ var db = require('./query_base');
 var crawler_repo = {
   /* return_process_callback(err, result_cursor) */
   getCursor: function(return_process_callback) {
-    db.query('SELECT * FROM crawler', [], function(e, rows, fields) {
+    db.query('SELECT `Cursor` FROM crawler', [], function(e, rows, fields) {
       if (e) {
         return_process_callback(e);
         return;
@@ -29,8 +29,8 @@ var crawler_repo = {
   },
   /* result_callback(err) */
   setCursor: function(cursor, result_callback) {
-    db.query('IF EXISTS (SELECT * FROM crawler) UPDATE crawler SET `Cursor` = ? ELSE INSERT INTO crawler (`Cursor`) VALUES(?)',
-      [cursor, cursor], function(e) {
+    db.query('INSERT INTO crawler(`CrawlerKey`, `Cursor`) VALUES(?, ?) ON DUPLICATE KEY UPDATE `Cursor` = ?',
+      ['zbeejs_crawler_key', cursor, cursor], function(e) {
       if (e) {
         result_callback(e);
         return;
