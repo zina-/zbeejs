@@ -22,10 +22,6 @@ router.route('/notification')
 
   /* echo notification challenge */
   .get(function(req, res, next) {
-    console.log(path.relative('/comic', '/comic/'));
-    console.log(path.basename('/comic/c.zip', path.extname('/comic/c.zip')));
-    console.log(path.onlyname('/comic/asdf.zip'));
-    console.log(path.join(process.cwd(), 'public/resource'));
     res.send(req.param('challenge'));
   })
 
@@ -61,11 +57,6 @@ router.route('/notification')
         },
         /* 4. crwal from dropbox to local system */
         function(dt, callback) {
-          console.log(dt);
-          dt.changes.forEach(function(change) {
-            console.log(change);
-          });
-          console.log('end!');
           runCrawl(current_cursor, dt, dbx_client, callback);
         }
       ],
