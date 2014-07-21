@@ -58,6 +58,10 @@ router.route('/notification')
         /* 4. crwal from dropbox to local system */
         function(dt, callback) {
           runCrawl(current_cursor, dt, dbx_client, callback);
+        },
+        /* update cursor */
+        function(dt, callback) {
+          crawler_repo.setCursor(dt.cursor(), callback);
         }
       ],
       /* last callback for DONE or EXCEPT */
@@ -119,13 +123,7 @@ var runCrawl = function(cursor, dt, dbx, crawl_callback) {
     }
   }
 
-  crawler_repo.setCursor(dt.cursor(), function(e) {
-    if (e) {
-      console.error(e);
-    }
-
-    crawl_callback(null);
-  });
+  crawl_callback(null, dt);
 };
 
 
