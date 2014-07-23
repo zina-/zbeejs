@@ -48,6 +48,9 @@ pre::-webkit-scrollbar-thumb {
 /*zoom: 1;*/
 /**display: inline;*/
 /*}*/
+.hljs {
+    background-color: transparent;
+}
 
 .jumbotron {
     /*background-color: rgba(176, 67, 234, 0.9);*/
